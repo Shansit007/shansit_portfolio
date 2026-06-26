@@ -35,7 +35,7 @@
   height: 100%;
   z-index: -1; /* sits behind all content */
   pointer-events: none; /* never blocks clicks */
-  opacity: 0.55; /* keep it ambient, not loud */
+  opacity: 0.85; /* electric, but still behind the content */
 }
 
 /* ---------- Reset ---------- */
