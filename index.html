@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shansit Suman — Full Stack Developer & AI/ML Engineer</title>
+  <meta
+    name="description"
+    content="Shansit Suman — Full Stack Developer and AI/ML Engineer. I build products that work, from ML models to deployed web apps."
+  />
+
+  <!-- Google Fonts: Space Grotesk + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#hero" class="navbar__logo">Shansit&nbsp;Suman</a>
+
+      <nav>
+        <ul class="navbar__links" id="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="navbar__toggle"
+        id="nav-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <p class="hero__greeting">Hi, I'm</p>
+        <h1 class="hero__name">Shansit Suman</h1>
+
+        <!-- Typewriter target — text injected by script.js -->
+        <p class="hero__role">
+          <span id="typewriter"></span><span class="cursor">|</span>
+        </p>
+
+        <p class="hero__tagline">
+          I build products that work — from ML models to deployed web apps.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary">View My Work</a>
+          <a href="resume.pdf" class="btn btn--ghost" target="_blank" rel="noopener">
+            <i class="fa-regular fa-file-lines"></i> Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">01.</span> About</h2>
+
+        <div class="about__grid">
+          <div class="about__text">
+            <p>
+              B.Tech CSE (AI/ML) student at VIT Bhopal (2023–2027), CGPA 8.48.
+              I build full-stack AI products, think in systems, and have launched
+              real ventures — from a Shopify clothing store to an IPL intelligence
+              platform with 500K+ data points.
+            </p>
+            <p>
+              I care about shipping things that actually work — not demos that look
+              good in a screenshot, but products people can use.
+            </p>
+          </div>
+
+          <aside class="stats-card">
+            <ul class="stats-card__list">
+              <li>
+                <span class="stats-card__value">3+</span>
+                <span class="stats-card__label">Deployed Projects</span>
+              </li>
+              <li>
+                <span class="stats-card__value">500K+</span>
+                <span class="stats-card__label">Data Points Trained</span>
+              </li>
+              <li>
+                <span class="stats-card__value">11</span>
+                <span class="stats-card__label">Features Shipped (CricIQ)</span>
+              </li>
+              <li>
+                <span class="stats-card__value">10K+</span>
+                <span class="stats-card__label">Instagram Followers (music)</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">02.</span> Skills</h2>
+
+        <div class="skills__groups">
+          <div class="skill-group">
+            <h3 class="skill-group__label">Frontend</h3>
+            <ul class="skill-group__list">
+              <li>React.js</li>
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Tailwind CSS</li>
+              <li>Framer Motion</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group__label">Backend</h3>
+            <ul class="skill-group__list">
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>FastAPI</li>
+              <li>REST API</li>
+              <li>WebSocket</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group__label">AI / ML</h3>
+            <ul class="skill-group__list">
+              <li>XGBoost</li>
+              <li>TensorFlow</li>
+              <li>SHAP</li>
+              <li>LangChain</li>
+              <li>librosa</li>
+              <li>Scikit-learn</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group__label">Databases & Cloud</h3>
+            <ul class="skill-group__list">
+              <li>PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>Supabase</li>
+              <li>AWS</li>
+              <li>Vercel</li>
+              <li>Render</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group__label">Tools</h3>
+            <ul class="skill-group__list">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>Postman</li>
+              <li>Groq API</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">03.</span> Projects</h2>
+
+        <div class="projects__grid">
+          <!-- Project 1 — CricIQ -->
+          <article class="project-card">
+            <div class="project-card__head">
+              <h3 class="project-card__name">CricIQ</h3>
+              <span class="live-badge"><span class="live-dot"></span> Live</span>
+            </div>
+
+            <p class="project-card__desc">
+              Solo-built real-time IPL intelligence platform. XGBoost model trained
+              on 500K+ deliveries, novel Pressure Score metric, Llama 3.3 70B AI
+              commentary, 11 production features including a multiplayer game room.
+            </p>
+
+            <ul class="tag-list">
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>FastAPI</li>
+              <li>XGBoost</li>
+              <li>SHAP</li>
+              <li>LangChain</li>
+              <li>Groq</li>
+              <li>Supabase</li>
+            </ul>
+
+            <div class="project-card__links">
+              <a href="https://criciq-nine.vercel.app" class="btn btn--small btn--primary" target="_blank" rel="noopener">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+              <a href="https://github.com/Shansit007/CricIQ" class="btn btn--small btn--ghost" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2 — Hookify -->
+          <article class="project-card">
+            <div class="project-card__head">
+              <h3 class="project-card__name">Hookify</h3>
+              <span class="live-badge"><span class="live-dot"></span> Live</span>
+            </div>
+
+            <p class="project-card__desc">
+              AI music web app that detects and plays only the catchiest 15-second
+              hook of any trending song. Custom librosa-based AI model deployed as a
+              FastAPI microservice.
+            </p>
+
+            <ul class="tag-list">
+              <li>Next.js 16</li>
+              <li>TypeScript</li>
+              <li>FastAPI</li>
+              <li>librosa</li>
+              <li>Supabase</li>
+              <li>Railway</li>
+            </ul>
+
+            <div class="project-card__links">
+              <a href="https://hookify-app-chi.vercel.app" class="btn btn--small btn--primary" target="_blank" rel="noopener">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+              <a href="https://github.com/shreyagoyal9/hookify-app" class="btn btn--small btn--ghost" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3 — Where-is-My-Faculty -->
+          <article class="project-card">
+            <div class="project-card__head">
+              <h3 class="project-card__name">Where-is-My-Faculty</h3>
+            </div>
+
+            <p class="project-card__desc">
+              Full-stack academic portal solving a real university problem. Sole
+              backend developer — built 15+ REST APIs, 4 role-based systems, JWT
+              auth, deployed on AWS EC2.
+            </p>
+
+            <ul class="tag-list">
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>MongoDB Atlas</li>
+              <li>JWT</li>
+              <li>AWS EC2</li>
+            </ul>
+
+            <div class="project-card__links">
+              <a href="https://github.com/Shansit007/Where-is-My-Faculty" class="btn btn--small btn--ghost" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">04.</span> Experience</h2>
+
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__role">Ericsson Edge Academia Program</h3>
+              <p class="timeline__meta">Oct 2025 – Mar 2026 · Rank ~67 · Top ~700 Worldwide</p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__role">Deloitte Australia — Technology Job Simulation</h3>
+              <p class="timeline__meta">May 2026 · Forage</p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__role">Zoobi — Independent Shopify E-Commerce Store</h3>
+              <p class="timeline__meta">2024 · Founder</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">05.</span> Certifications</h2>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <i class="fa-solid fa-cloud cert-card__icon"></i>
+            <h3 class="cert-card__title">Cloud Computing — Elite</h3>
+            <p class="cert-card__meta">NPTEL · IIT · 2025</p>
+          </article>
+
+          <article class="cert-card">
+            <i class="fa-solid fa-microchip cert-card__icon"></i>
+            <h3 class="cert-card__title">Internet of Things — Elite</h3>
+            <p class="cert-card__meta">NPTEL · IIT · 2026</p>
+          </article>
+
+          <article class="cert-card">
+            <i class="fa-solid fa-robot cert-card__icon"></i>
+            <h3 class="cert-card__title">Applied Machine Learning</h3>
+            <p class="cert-card__meta">Coursera · Dec 2025</p>
+          </article>
+
+          <article class="cert-card">
+            <i class="fa-solid fa-database cert-card__icon"></i>
+            <h3 class="cert-card__title">Advanced SQL</h3>
+            <p class="cert-card__meta">Boss Coder Academy · Feb 2025</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS ===== -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">06.</span> Achievements</h2>
+
+        <ul class="achievements">
+          <li>
+            <span class="achievements__icon">🏆</span>
+            Top ~700 globally — Ericsson Edge Academia
+          </li>
+          <li>
+            <span class="achievements__icon">♟</span>
+            3rd Place — National Sub-Junior Chess Championship (2022)
+          </li>
+          <li>
+            <span class="achievements__icon">🎵</span>
+            Lead vocalist — professional band, 10K+ Instagram followers
+          </li>
+          <li>
+            <span class="achievements__icon">📚</span>
+            Class Representative — DSA, CN, DBMS, TOC
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section section--contact" id="contact">
+      <div class="container">
+        <h2 class="section__title section__title--center">
+          <span class="section__num">07.</span> Contact
+        </h2>
+
+        <p class="contact__line">
+          Open to internships and full-time roles starting 2027.
+        </p>
+
+        <div class="contact__links">
+          <a href="mailto:shansit29@gmail.com" class="contact__link">
+            <i class="fa-solid fa-envelope"></i> shansit29@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/sansitsuman" class="contact__link" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/Shansit007" class="contact__link" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>Built by Shansit Suman — 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
