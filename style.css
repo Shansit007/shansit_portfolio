@@ -304,6 +304,18 @@ ol {
   gap: 2rem;
 }
 
+/* Circular profile photo with a soft electric-blue ring */
+.about__photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-soft), 0 10px 30px rgba(0, 0, 0, 0.45);
+  margin-bottom: 1.75rem;
+  display: block;
+}
+
 .about__text p + p {
   margin-top: 1rem;
 }
