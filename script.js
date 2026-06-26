@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initScrollReveal();
   initActiveNavHighlight();
+  initElectricBackground();
 });
 
 /* ---------------------------------------------------------
@@ -168,4 +169,122 @@ function initActiveNavHighlight() {
   );
 
   sections.forEach((section) => observer.observe(section));
+}
+
+/* ---------------------------------------------------------
+   6. Animated electric background
+   Drifting glowing particles linked by current lines that
+   brighten as particles approach each other.
+   --------------------------------------------------------- */
+function initElectricBackground() {
+  const canvas = document.getElementById("bg-canvas");
+  if (!canvas) return;
+
+  // Skip the whole thing for users who prefer reduced motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const ctx = canvas.getContext("2d");
+  const ACCENT = "77, 141, 255"; // electric blue, as RGB for rgba()
+  const LINK_DISTANCE = 140; // px within which particles connect
+  let width, height, particles, animationId;
+
+  // Build particles, scaling the count to screen size (and capping it)
+  function createParticles() {
+    const count = Math.min(Math.floor(width / 16), 90);
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.35, // slow horizontal drift
+      vy: (Math.random() - 0.5) * 0.35, // slow vertical drift
+      r: Math.random() * 1.6 + 0.8,
+      // each particle flickers on its own rhythm for an electric feel
+      flicker: Math.random() * Math.PI * 2,
+    }));
+  }
+
+  // Match the canvas buffer to the viewport, accounting for retina screens
+  function resize() {
+    const dpr = window.devicePixelRatio || 1;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    createParticles();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Draw the connecting "current" lines first, behind the nodes
+    for (let i = 0; i < particles.length; i++) {
+      const a = particles[i];
+      for (let j = i + 1; j < particles.length; j++) {
+        const b = particles[j];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        if (dist < LINK_DISTANCE) {
+          // Closer particles = brighter line
+          const alpha = (1 - dist / LINK_DISTANCE) * 0.5;
+          ctx.strokeStyle = `rgba(${ACCENT}, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw the glowing particles on top
+    ctx.shadowColor = `rgba(${ACCENT}, 0.9)`;
+    for (const p of particles) {
+      // Move
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // Wrap around the edges so the field never empties out
+      if (p.x < 0) p.x = width;
+      if (p.x > width) p.x = 0;
+      if (p.y < 0) p.y = height;
+      if (p.y > height) p.y = 0;
+
+      // Flicker the brightness slightly
+      p.flicker += 0.05;
+      const glow = 0.6 + Math.sin(p.flicker) * 0.4;
+
+      ctx.shadowBlur = 8;
+      ctx.fillStyle = `rgba(${ACCENT}, ${glow})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.shadowBlur = 0; // reset so lines next frame aren't blurred
+
+    animationId = requestAnimationFrame(draw);
+  }
+
+  function start() {
+    if (!animationId) draw();
+  }
+  function stop() {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+
+  // Pause when the tab isn't visible to save the user's battery
+  document.addEventListener("visibilitychange", () => {
+    document.hidden ? stop() : start();
+  });
+
+  // Debounce resizes so we don't rebuild particles on every pixel
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  });
+
+  resize();
+  start();
 }
