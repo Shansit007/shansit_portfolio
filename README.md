@@ -3,63 +3,72 @@
 Personal portfolio website. Pure HTML, CSS, and vanilla JavaScript — no
 frameworks, no build step. Works directly on GitHub Pages.
 
+**Live:** https://shansit007.github.io/shansit_portfolio
+
+## Features
+
+- Dark, minimal, premium theme (Notion / Linear / Vercel feel)
+- Animated electric background — drifting glowing particles, "current" links,
+  and jagged lightning arcs, drawn on a canvas with vanilla JS
+- Hero typewriter cycling through roles
+- Fade-in-up on scroll (IntersectionObserver), active nav highlight, smooth scroll
+- Fixed navbar that turns solid on scroll, with a mobile hamburger menu
+- Fully responsive, mobile-first
+- Respects `prefers-reduced-motion` and pauses the background when the tab is hidden
+
 ## File structure
 
 ```
 .
 ├── index.html     # Markup — all sections, semantic HTML5
 ├── style.css      # Dark theme, layout, responsive rules, animations
-├── script.js      # Typewriter, scroll reveal, navbar, mobile menu
-├── resume.pdf     # (add your own — the Resume button links here)
+├── script.js      # Typewriter, scroll reveal, navbar, electric background
+├── resume.pdf     # Linked from the Resume button in the hero
+├── profile.jpg    # Profile photo shown in the About section
 └── README.md
 ```
 
 ## Run locally
 
-Just open `index.html` in a browser. Or serve it (so relative paths behave
-exactly like production):
+Open `index.html` in a browser, or serve it so relative paths behave like
+production:
 
 ```bash
 python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-## Deploy to GitHub Pages
+## Deploy / update (GitHub Pages)
 
-This is a **user site**, served from the root of `shansit007.github.io`.
+The site is served from the `Shansit007/shansit_portfolio` repo on the `main`
+branch. To publish changes:
 
-1. **Create the repo** — on the `Shansit007` account, make a new public repo
-   named exactly:
+```bash
+git add .
+git commit -m "Describe your change"
+git push
+```
 
-   ```
-   Shansit007.github.io
-   ```
+GitHub Pages rebuilds automatically in about a minute. Hard-refresh
+(`Cmd+Shift+R`) to bypass the browser cache.
 
-2. **Push these files** to the `main` branch (files must sit at the repo root,
-   not inside a subfolder):
+**Pages setting:** repo → Settings → Pages → Source: *Deploy from a branch* →
+Branch **main** → **/(root)**.
 
-   ```bash
-   git init
-   git add .
-   git commit -m "Portfolio site"
-   git branch -M main
-   git remote add origin https://github.com/Shansit007/Shansit007.github.io.git
-   git push -u origin main
-   ```
+> Want the cleaner root URL `https://shansit007.github.io` instead? Rename the
+> repo to `Shansit007.github.io`, then update the remote with
+> `git remote set-url origin https://github.com/Shansit007/Shansit007.github.io.git`.
 
-3. **Enable Pages** — go to **Settings → Pages**, set **Source** to
-   *Deploy from a branch*, branch **main**, folder **/ (root)**, then **Save**.
+## Tuning the background
 
-4. Wait ~1 minute. The site goes live at:
+Both knobs live in `script.js` → `initElectricBackground`, plus one in CSS:
 
-   ```
-   https://shansit007.github.io
-   ```
+- **Overall intensity:** `#bg-canvas { opacity }` in `style.css` (currently `0.85`)
+- **Particle density:** the `Math.min(Math.floor(width / 11), 130)` cap
+- **Lightning frequency:** `frame % 35` — a larger number means rarer bolts
 
 ## Notes
 
-- Add your resume as `resume.pdf` in the root, or change the link in the hero
-  section of `index.html` (the `[Resume]` button).
 - Colors and fonts are CSS variables at the top of `style.css` (`:root`) — edit
   them in one place to re-theme.
 - No server-side code, no environment variables, no dependencies to install.
